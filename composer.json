@@ -20,7 +20,7 @@
     },
     "require": {
         "php": "^7.3|^8.0",
-        "andrey-helldar/contracts": "^1.4.6",
+        "dragon-code/contracts": "^1.4.6",
         "andrey-helldar/support": "^4.3"
     },
     "require-dev": {

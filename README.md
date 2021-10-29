@@ -1,6 +1,6 @@
 # Simple Data Transfer Object
 
-<img src="https://preview.dragon-code.pro/TheDragonCode/simple-dto.svg?brand=php" width="100%" height="320" alt="Simple DTO"/>
+<img src="https://preview.dragon-code.pro/TheDragonCode/simple-dto.svg?brand=php" alt="Simple DTO"/>
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Unstable Version][badge_unstable]][link_packagist]

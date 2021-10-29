@@ -27,6 +27,8 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 
 ## Using
 
+### Basic
+
 ```php
 namespace App\DTO;
 
@@ -36,9 +38,49 @@ class YourInstance extends DataTransferObject
 {
     public $foo;
    
-    protected $bar;
+    public $bar;
     
-    protected $baz;
+    public $baz;
+    
+    public $qwerty;
+}
+
+$instance = YourInstance::make([
+    'foo' => 'Foo',
+    'bar' => 'Bar'
+    'baz' => 'Baz'
+]);
+
+
+return $instance->foo;
+// Foo
+
+return $instance->bar;
+// Bar
+
+return $instance->baz;
+// Baz
+
+return $instance->qwerty;
+// null
+```
+
+### Mappings
+
+```php
+namespace App\DTO;
+
+use Helldar\SimpleDataTransferObject\DataTransferObject;
+
+class YourInstance extends DataTransferObject
+{
+    public $foo;
+   
+    public $bar;
+    
+    public $baz;
+    
+    public $qwerty;
    
     protected $map = [
         'data.foo' => 'foo',
@@ -46,7 +88,7 @@ class YourInstance extends DataTransferObject
     ];
 }
 
-return YourInstance::make([
+$instance = YourInstance::make([
     'data' => [
         'foo' => 'Foo',
         'bar' => 'Bar'
@@ -55,9 +97,17 @@ return YourInstance::make([
 ]);
 
 
-// public $foo = 'Foo';
-// protected $bar = 'Bar';
-// protected $baz = 'Baz';
+return $instance->foo;
+// Foo
+
+return $instance->bar;
+// Bar
+
+return $instance->baz;
+// Baz
+
+return $instance->qwerty;
+// null
 ```
 
 [badge_downloads]:      https://img.shields.io/packagist/dt/andrey-helldar/simple-data-transfer-object.svg?style=flat-square

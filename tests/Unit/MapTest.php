@@ -40,4 +40,24 @@ class MapTest extends TestCase
         $this->assertSame($this->bar, $object->bar);
         $this->assertSame($this->baz, $object->baz);
     }
+
+    public function testToArray()
+    {
+        $object = new Map([
+            'wa' => [
+                'sd' => $this->foo,
+            ],
+
+            'qwe.rty' => $this->bar,
+            'baz'     => $this->baz,
+        ]);
+
+        $this->assertIsArray($object->toArray());
+
+        $this->assertSame([
+            'foo' => $this->foo,
+            'bar' => $this->bar,
+            'baz' => $this->baz,
+        ], $object->toArray());
+    }
 }

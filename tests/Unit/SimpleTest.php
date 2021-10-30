@@ -38,4 +38,19 @@ class SimpleTest extends TestCase
 
         $this->assertNull($object->getBaz());
     }
+
+    public function testToArray()
+    {
+        $object = new Simple([
+            'foo' => $this->foo,
+            'bar' => $this->bar,
+            'baz' => $this->baz,
+        ]);
+
+        $this->assertIsArray($object->toArray());
+
+        $this->assertSame([
+            'foo' => $this->foo,
+        ], $object->toArray());
+    }
 }

@@ -3,15 +3,18 @@
 namespace Helldar\SimpleDataTransferObject;
 
 use Helldar\Contracts\DataTransferObject\DataTransferObject as Contract;
+use Helldar\Contracts\Support\Arrayable;
 use Helldar\SimpleDataTransferObject\Contracts\Reflection;
 use Helldar\Support\Concerns\Makeable;
 use Helldar\Support\Facades\Helpers\Arr;
 use Helldar\Support\Facades\Helpers\Str;
+use ReflectionClass;
+use ReflectionProperty;
 
 /**
  * @method static static make(array $items = [])
  */
-abstract class DataTransferObject implements Contract
+abstract class DataTransferObject implements Contract, Arrayable
 {
     use Makeable;
     use Reflection;
@@ -29,6 +32,22 @@ abstract class DataTransferObject implements Contract
     {
         $this->setMap($items);
         $this->setItems($items);
+    }
+
+    public function toArray(): array
+    {
+        $reflect = new ReflectionClass($this);
+
+        $properties = $reflect->getProperties(ReflectionProperty::IS_PUBLIC);
+        $result     = [];
+
+        foreach ($properties as $property) {
+            $name = $property->getName();
+
+            $result[$name] = $this->{$name};
+        }
+
+        return $result;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Tests\Fixtures;
 
-use Helldar\SimpleDataTransferObject\DataTransferObject;
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
 class Map extends DataTransferObject
 {

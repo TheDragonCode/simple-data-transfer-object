@@ -25,6 +25,12 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 }
 ```
 
+### Upgrade from `andrey-helldar/simple-data-transfer-object`
+
+1. Replace `"andrey-helldar/simple-data-transfer-object": "^1.0"` with `"dragon-code/simple-data-transfer-object": "^2.0"` in the composer.json file;
+2. Replace `Helldar\SimpleDataTransferObject` namespace prefix with `DragonCode\SimpleDataTransferObject` in your application;
+3. Call the `composer update` console command.
+
 ## Using
 
 ### Basic

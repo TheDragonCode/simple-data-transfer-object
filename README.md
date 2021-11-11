@@ -12,7 +12,7 @@
 To get the latest version of `Simple Data Transfer Object`, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require andrey-helldar/simple-data-transfer-object
+$ composer require dragon-code/simple-data-transfer-object
 ```
 
 Or manually update `require` block of `composer.json` and run `composer update`.
@@ -20,7 +20,7 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 ```json
 {
     "require": {
-        "andrey-helldar/simple-data-transfer-object": "^1.0"
+        "dragon-code/simple-data-transfer-object": "^1.0"
     }
 }
 ```
@@ -32,7 +32,7 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 ```php
 namespace App\DTO;
 
-use Helldar\SimpleDataTransferObject\DataTransferObject;
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
 class YourInstance extends DataTransferObject
 {
@@ -70,7 +70,7 @@ return $instance->qwerty;
 ```php
 namespace App\DTO;
 
-use Helldar\SimpleDataTransferObject\DataTransferObject;
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
 class YourInstance extends DataTransferObject
 {
@@ -110,14 +110,14 @@ return $instance->qwerty;
 // null
 ```
 
-[badge_downloads]:      https://img.shields.io/packagist/dt/andrey-helldar/simple-data-transfer-object.svg?style=flat-square
+[badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-data-transfer-object.svg?style=flat-square
 
-[badge_license]:        https://img.shields.io/packagist/l/andrey-helldar/simple-data-transfer-object.svg?style=flat-square
+[badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-data-transfer-object.svg?style=flat-square
 
-[badge_stable]:         https://img.shields.io/github/v/release/andrey-helldar/simple-data-transfer-object?label=stable&style=flat-square
+[badge_stable]:         https://img.shields.io/github/v/release/dragon-code/simple-data-transfer-object?label=stable&style=flat-square
 
 [badge_unstable]:       https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 
 [link_license]:         LICENSE
 
-[link_packagist]:       https://packagist.org/packages/andrey-helldar/simple-data-transfer-object
+[link_packagist]:       https://packagist.org/packages/dragon-code/simple-data-transfer-object

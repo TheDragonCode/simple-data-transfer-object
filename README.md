@@ -20,7 +20,7 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 ```json
 {
     "require": {
-        "dragon-code/simple-data-transfer-object": "^1.0"
+        "dragon-code/simple-data-transfer-object": "^2.0"
     }
 }
 ```

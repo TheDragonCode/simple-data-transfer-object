@@ -1,12 +1,14 @@
 {
-    "name": "andrey-helldar/simple-data-transfer-object",
+    "name": "dragon-code/simple-data-transfer-object",
     "description": "Simple Data Transfer Objects",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "andrey-helldar",
         "dto",
-        "data-transfer-object"
+        "data-transfer-object",
+        "andrey-helldar",
+        "dragon-code",
+        "dragon"
     ],
     "authors": [
         {
@@ -15,21 +17,21 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/andrey-helldar/simple-data-transfer-object/issues",
-        "source": "https://github.com/andrey-helldar/simple-data-transfer-object"
+        "issues": "https://github.com/TheDragonCode/simple-data-transfer-object/issues",
+        "source": "https://github.com/TheDragonCode/simple-data-transfer-object"
     },
     "require": {
         "php": "^7.3|^8.0",
-        "dragon-code/contracts": "^1.4.6",
-        "andrey-helldar/support": "^4.3"
+        "dragon-code/contracts": "^2.0",
+        "dragon-code/support": "^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
-        "symfony/var-dumper": "^4.3.4|^5.0"
+        "symfony/var-dumper": "^4.3|^5.0"
     },
     "autoload": {
         "psr-4": {
-            "Helldar\\SimpleDataTransferObject\\": "src"
+            "DragonCode\\SimpleDataTransferObject\\": "src"
         }
     },
     "autoload-dev": {

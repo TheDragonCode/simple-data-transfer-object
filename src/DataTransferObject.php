@@ -1,20 +1,19 @@
 <?php
 
-namespace Helldar\SimpleDataTransferObject;
+namespace DragonCode\SimpleDataTransferObject;
 
-use Helldar\Contracts\DataTransferObject\DataTransferObject as Contract;
-use Helldar\Contracts\Support\Arrayable;
-use Helldar\SimpleDataTransferObject\Contracts\Reflection;
-use Helldar\Support\Concerns\Makeable;
-use Helldar\Support\Facades\Helpers\Arr;
-use Helldar\Support\Facades\Helpers\Str;
+use DragonCode\Contracts\DataTransferObject\DataTransferObject as Contract;
+use DragonCode\SimpleDataTransferObject\Contracts\Reflection;
+use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Helpers\Arr;
+use DragonCode\Support\Facades\Helpers\Str;
 use ReflectionClass;
 use ReflectionProperty;
 
 /**
  * @method static static make(array $items = [])
  */
-abstract class DataTransferObject implements Contract, Arrayable
+abstract class DataTransferObject implements Contract
 {
     use Makeable;
     use Reflection;

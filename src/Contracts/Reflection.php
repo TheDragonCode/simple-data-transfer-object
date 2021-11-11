@@ -1,8 +1,8 @@
 <?php
 
-namespace Helldar\SimpleDataTransferObject\Contracts;
+namespace DragonCode\SimpleDataTransferObject\Contracts;
 
-use Helldar\Support\Concerns\Resolvable;
+use DragonCode\Support\Concerns\Resolvable;
 use ReflectionClass;
 
 trait Reflection

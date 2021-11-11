@@ -5,6 +5,7 @@ namespace DragonCode\SimpleDataTransferObject;
 use DragonCode\Contracts\DataTransferObject\DataTransferObject as Contract;
 use DragonCode\SimpleDataTransferObject\Contracts\Reflection;
 use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Helpers\Ables\Stringable;
 use DragonCode\Support\Facades\Helpers\Arr;
 use DragonCode\Support\Facades\Helpers\Str;
 use ReflectionClass;
@@ -89,8 +90,19 @@ abstract class DataTransferObject implements Contract
     protected function setValue(string $key, $value): void
     {
         if ($this->isAllow($key)) {
-            $this->{$key} = $value;
+            $this->{$key} = $this->cast($value, $key);
         }
+    }
+
+    protected function cast($value, string $key)
+    {
+        $method = $this->getMethodName($key, 'cast');
+
+        if (method_exists($this, $method)) {
+            return call_user_func([$this, $method], $value);
+        }
+
+        return $value;
     }
 
     /**
@@ -126,5 +138,13 @@ abstract class DataTransferObject implements Contract
     protected function isAllowKey(string $key): bool
     {
         return ! in_array(Str::lower($key), $this->disallow, true);
+    }
+
+    protected function getMethodName(string $key, string $prefix): string
+    {
+        return (string) Stringable::of($key)
+            ->trim()
+            ->start($prefix . '_')
+            ->camel();
     }
 }

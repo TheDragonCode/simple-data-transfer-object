@@ -110,6 +110,57 @@ return $instance->qwerty;
 // null
 ```
 
+### Casts
+
+```php
+namespace App\DTO;
+
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
+use DragonCode\Support\Facades\Helpers\Str;
+
+class YourInstance extends DataTransferObject
+{
+    public $foo;
+   
+    public $bar;
+    
+    public $baz;
+    
+    public $qwerty;
+   
+    protected $map = [
+        'data.foo' => 'foo',
+        'data.bar' => 'bar',
+    ];
+    
+    protected function castFoo($value)
+    {
+        return Str::upper($value);
+    }
+}
+
+$instance = YourInstance::make([
+    'data' => [
+        'foo' => 'Foo',
+        'bar' => 'Bar'
+    ],
+    'baz' => 'Baz'
+]);
+
+
+return $instance->foo;
+// FOO
+
+return $instance->bar;
+// Bar
+
+return $instance->baz;
+// Baz
+
+return $instance->qwerty;
+// null
+```
+
 [badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-data-transfer-object.svg?style=flat-square
 
 [badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-data-transfer-object.svg?style=flat-square

@@ -29,6 +29,9 @@
         "phpunit/phpunit": "^9.0",
         "symfony/var-dumper": "^4.3|^5.0"
     },
+    "conflict": {
+        "andrey-helldar/simple-data-transfer-object": "*"
+    },
     "autoload": {
         "psr-4": {
             "DragonCode\\SimpleDataTransferObject\\": "src"

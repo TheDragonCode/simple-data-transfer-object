@@ -171,7 +171,7 @@ return $instance->qwerty;
 
 [badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-data-transfer-object.svg?style=flat-square
 
-[badge_stable]:         https://img.shields.io/github/v/release/dragon-code/simple-data-transfer-object?label=stable&style=flat-square
+[badge_stable]:         https://img.shields.io/github/v/release/TheDragonCode/simple-data-transfer-object?label=stable&style=flat-square
 
 [badge_unstable]:       https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
 

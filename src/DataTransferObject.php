@@ -9,6 +9,7 @@ use DragonCode\Support\Facades\Helpers\Ables\Stringable;
 use DragonCode\Support\Facades\Helpers\Arr;
 use DragonCode\Support\Facades\Helpers\Str;
 use ReflectionClass;
+use ReflectionException;
 use ReflectionProperty;
 
 /**
@@ -24,9 +25,9 @@ abstract class DataTransferObject implements Contract
     protected $disallow = ['map', 'disallow'];
 
     /**
-     * @param  array  $items
+     * @param array $items
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function __construct(array $items = [])
     {
@@ -51,9 +52,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param  array  $items
+     * @param array $items
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     protected function setMap(array $items): void
     {
@@ -65,9 +66,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param  array  $items
+     * @param array $items
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     protected function setItems(array $items): void
     {
@@ -82,10 +83,10 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param  string  $key
-     * @param  mixed  $value
+     * @param string $key
+     * @param mixed $value
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     protected function setValue(string $key, $value): void
     {
@@ -106,9 +107,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param  string  $key
+     * @param string $key
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return bool
      */
@@ -118,9 +119,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param  string  $key
+     * @param string $key
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return bool
      */

@@ -4,15 +4,16 @@ namespace DragonCode\SimpleDataTransferObject\Contracts;
 
 use DragonCode\Support\Concerns\Resolvable;
 use ReflectionClass;
+use ReflectionException;
 
 trait Reflection
 {
     use Resolvable;
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
-     * @return \ReflectionClass
+     * @return ReflectionClass
      */
     protected function reflection(): ReflectionClass
     {

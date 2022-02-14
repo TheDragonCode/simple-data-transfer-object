@@ -43,11 +43,11 @@ use DragonCode\SimpleDataTransferObject\DataTransferObject;
 class YourInstance extends DataTransferObject
 {
     public $foo;
-   
+
     public $bar;
-    
+
     public $baz;
-    
+
     public $qwerty;
 }
 
@@ -81,13 +81,13 @@ use DragonCode\SimpleDataTransferObject\DataTransferObject;
 class YourInstance extends DataTransferObject
 {
     public $foo;
-   
+
     public $bar;
-    
+
     public $baz;
-    
+
     public $qwerty;
-   
+
     protected $map = [
         'data.foo' => 'foo',
         'data.bar' => 'bar',
@@ -127,18 +127,18 @@ use DragonCode\Support\Facades\Helpers\Str;
 class YourInstance extends DataTransferObject
 {
     public $foo;
-   
+
     public $bar;
-    
+
     public $baz;
-    
+
     public $qwerty;
-   
+
     protected $map = [
         'data.foo' => 'foo',
         'data.bar' => 'bar',
     ];
-    
+
     protected function castFoo($value)
     {
         return Str::upper($value);
@@ -165,6 +165,81 @@ return $instance->baz;
 
 return $instance->qwerty;
 // null
+```
+
+### From
+
+#### Array
+
+```php
+use DragonCode\Contracts\DataTransferObject\DataTransferObject;
+use Tests\Fixtures\Simple;
+
+class Foo
+{
+    protected array $items = [
+        'foo' => 'Foo',
+        'bar' => 'Bar',
+    ];
+
+    protected function dto(): DataTransferObject
+    {
+        return Simple::fromArray($this->items);
+    }
+}
+```
+
+#### Json
+
+```php
+use DragonCode\Contracts\DataTransferObject\DataTransferObject;
+use Tests\Fixtures\Simple;
+
+class Foo
+{
+    protected string $json = '{"foo":"Foo","bar":"Bar"}';
+
+    protected function dto(): DataTransferObject
+    {
+        return Simple::fromJson($this->json);
+    }
+}
+```
+
+#### Object
+
+```php
+use DragonCode\Contracts\DataTransferObject\DataTransferObject;
+use Tests\Fixtures\CustomObject;
+use Tests\Fixtures\Simple;
+
+class Foo
+{
+    protected CustomObject $object;
+
+    protected function dto(): DataTransferObject
+    {
+        return Simple::fromObject($this->object);
+    }
+}
+```
+
+#### Request
+
+```php
+use DragonCode\Contracts\DataTransferObject\DataTransferObject;
+use Symfony\Component\HttpFoundation\Request;
+use Tests\Fixtures\Simple;
+
+class Foo
+{
+    protected Request $request;
+
+    protected function dto(): DataTransferObject
+    {
+        return Simple::fromRequest($this->request)
+    }
+}
 ```
 
 [badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-data-transfer-object.svg?style=flat-square

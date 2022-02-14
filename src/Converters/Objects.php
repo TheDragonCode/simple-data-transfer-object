@@ -7,6 +7,7 @@ namespace DragonCode\SimpleDataTransferObject\Converters;
 use DragonCode\Contracts\Support\Arrayable;
 use DragonCode\SimpleDataTransferObject\Concerns\Reflection;
 use DragonCode\Support\Concerns\Makeable;
+use ReflectionException;
 
 /**
  * @method static Objects make($object)
@@ -24,7 +25,7 @@ class Objects implements Arrayable
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function toArray(): array
     {

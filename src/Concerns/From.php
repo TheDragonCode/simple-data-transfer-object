@@ -8,6 +8,7 @@ use DragonCode\Contracts\DataTransferObject\DataTransferObject as Contract;
 use DragonCode\SimpleDataTransferObject\Converters\Json;
 use DragonCode\SimpleDataTransferObject\Converters\Objects;
 use DragonCode\SimpleDataTransferObject\Converters\Requests;
+use ReflectionException;
 use Symfony\Component\HttpFoundation\Request;
 
 /** @mixin \DragonCode\SimpleDataTransferObject\DataTransferObject */
@@ -16,7 +17,7 @@ trait From
     /**
      * @param array $array
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
@@ -28,7 +29,7 @@ trait From
     /**
      * @param $object
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
@@ -42,7 +43,7 @@ trait From
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
@@ -56,7 +57,7 @@ trait From
     /**
      * @param string $json
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */

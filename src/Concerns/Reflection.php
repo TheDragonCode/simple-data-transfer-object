@@ -26,7 +26,7 @@ trait Reflection
     /**
      * @param $object
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return ReflectionProperty[]
      */
@@ -40,7 +40,7 @@ trait Reflection
     /**
      * @param $object
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return array
      */

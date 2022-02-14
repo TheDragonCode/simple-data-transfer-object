@@ -36,7 +36,7 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @throws \ReflectionException
+     * @throws ReflectionException
      *
      * @return array
      */
@@ -138,8 +138,8 @@ abstract class DataTransferObject implements Contract
     protected function getMethodName(string $key, string $prefix): string
     {
         return (string) Stringable::of($key)
-                                  ->trim()
-                                  ->start($prefix . '_')
-                                  ->camel();
+            ->trim()
+            ->start($prefix . '_')
+            ->camel();
     }
 }

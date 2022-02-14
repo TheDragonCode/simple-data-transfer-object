@@ -167,6 +167,73 @@ return $instance->qwerty;
 // null
 ```
 
+### Nested Objects
+
+With the help of casts, you can also easily create nested objects:
+
+```php
+use Tests\Fixtures\Nested\Company;
+
+$company = Company::make([
+    'title' => 'First Company',
+
+    'projects' => [
+        [
+            'title'  => 'Project 1',
+            'domain' => 'https://example.com',
+
+            'developers' => [
+                [
+                    'name'  => 'Andrey Helldar',
+                    'email' => 'helldar@ai-rus.com',
+                ],
+                [
+                    'name'  => 'John Doe',
+                    'email' => 'doe@example.com',
+                ],
+            ],
+        ],
+    ],
+]);
+
+$company->title;
+// First Company
+
+foreach ($company->projects as $project) {
+    $project->title;
+    // 0: Project 1
+
+    foreach ($project->developers as $developer) {
+        $developer->name;
+        // 0: Andrey Helldar
+        // 1: John Doe
+    }
+}
+```
+
+For example, casting test company object:
+
+```php
+namespace Tests\Fixtures\Nested;
+
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
+
+class Company extends DataTransferObject
+{
+    public $title;
+
+    /** @var \Tests\Fixtures\Nested\Project[] */
+    public $projects;
+
+    protected function castProjects(array $projects): array
+    {
+        return array_map(static function (array $project) {
+            return Project::make($project);
+        }, $projects);
+    }
+}
+```
+
 ### From
 
 #### Array

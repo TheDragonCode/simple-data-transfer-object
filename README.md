@@ -242,6 +242,40 @@ class Foo
 }
 ```
 
+## Helpers
+
+For your convenience, starting from version [2.17](https://github.com/TheDragonCode/contracts/releases/tag/v2.17.0) of
+the [`dragon-code/contracts`](https://github.com/TheDragonCode/contracts/releases/tag/v2.17.0) package, we have added a new interface that declares the implementation of the
+public `dto` method. This way you can better control your application to return DTO objects.
+
+Of course, don't forget to implement the interface 😉
+
+For example:
+
+```php
+namespace App\Http\Requests\Companies;
+
+use App\Objects\Company;
+use DragonCode\Contracts\DataTransferObject\DataTransferObject;
+use DragonCode\Contracts\DataTransferObject\Dtoable;
+
+class CreateRequest implements Dtoable
+{
+    // ...
+
+    public function dto(): DataTransferObject
+    {
+        return Company::fromRequest($this);
+    }
+}
+
+// Other place
+public function store(CreateRequest $request)
+{
+    $name = $request->dto()->name;
+}
+```
+
 [badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-data-transfer-object.svg?style=flat-square
 
 [badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-data-transfer-object.svg?style=flat-square

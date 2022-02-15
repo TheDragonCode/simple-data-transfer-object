@@ -1,5 +1,5 @@
 {
-    "name": "dragon-code/simple-data-transfer-object",
+    "name": "dragon-code/simple-dto",
     "description": "Simple Data Transfer Objects",
     "license": "MIT",
     "type": "library",

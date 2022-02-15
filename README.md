@@ -12,7 +12,7 @@
 To get the latest version of `Simple Data Transfer Object`, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require dragon-code/simple-data-transfer-object
+$ composer require dragon-code/simple-dto
 ```
 
 Or manually update `require` block of `composer.json` and run `composer update`.
@@ -20,16 +20,21 @@ Or manually update `require` block of `composer.json` and run `composer update`.
 ```json
 {
     "require": {
-        "dragon-code/simple-data-transfer-object": "^2.0"
+        "dragon-code/simple-dto": "^2.0"
     }
 }
 ```
 
 ### Upgrade from `andrey-helldar/simple-data-transfer-object`
 
-1. Replace `"andrey-helldar/simple-data-transfer-object": "^1.0"` with `"dragon-code/simple-data-transfer-object": "^2.0"` in the composer.json file;
+1. Replace `"andrey-helldar/simple-data-transfer-object": "^1.0"` with `"dragon-code/simple-dto": "^2.0"` in the `composer.json` file;
 2. Replace `Helldar\SimpleDataTransferObject` namespace prefix with `DragonCode\SimpleDataTransferObject` in your application;
 3. Call the `composer update` console command.
+
+### Upgrade from `dragon-code/simple-data-transfer-object`
+
+1. Replace `dragon-code/simple-data-transfer-object` with `dragon-code/simple-dto` in the `composer.json` file;
+2. Call the `composer update` console command.
 
 ## Using
 
@@ -220,10 +225,10 @@ use DragonCode\SimpleDataTransferObject\DataTransferObject;
 
 class Company extends DataTransferObject
 {
-    public $title;
+    public string $title;
 
     /** @var \Tests\Fixtures\Nested\Project[] */
-    public $projects;
+    public array $projects;
 
     protected function castProjects(array $projects): array
     {
@@ -343,9 +348,9 @@ public function store(CreateRequest $request)
 }
 ```
 
-[badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-data-transfer-object.svg?style=flat-square
+[badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/simple-dto.svg?style=flat-square
 
-[badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-data-transfer-object.svg?style=flat-square
+[badge_license]:        https://img.shields.io/packagist/l/dragon-code/simple-dto.svg?style=flat-square
 
 [badge_stable]:         https://img.shields.io/github/v/release/TheDragonCode/simple-data-transfer-object?label=stable&style=flat-square
 
@@ -353,4 +358,4 @@ public function store(CreateRequest $request)
 
 [link_license]:         LICENSE
 
-[link_packagist]:       https://packagist.org/packages/dragon-code/simple-data-transfer-object
+[link_packagist]:       https://packagist.org/packages/dragon-code/simple-dto

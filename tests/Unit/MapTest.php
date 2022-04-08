@@ -58,4 +58,23 @@ class MapTest extends TestCase
             'baz' => $this->baz,
         ], $object->toArray());
     }
+
+    public function testMissingValues()
+    {
+        $object = new Map([
+            'wa' => [
+                'sd' => $this->foo,
+            ],
+
+            'qwe.rty' => false,
+        ]);
+
+        $this->assertIsArray($object->toArray());
+
+        $this->assertSame([
+            'foo' => $this->foo,
+            'bar' => false,
+            'baz' => null,
+        ], $object->toArray());
+    }
 }

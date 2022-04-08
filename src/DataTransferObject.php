@@ -74,7 +74,11 @@ abstract class DataTransferObject implements Contract
 
     protected function getValueByKey(array $items, string $key, string $default)
     {
-        return Arr::get($items, $key) ?: Arr::get($items, $default);
+        if (Arr::exists($items, $key)) {
+            return Arr::get($items, $key);
+        }
+
+        return Arr::get($items, $default);
     }
 
     /**

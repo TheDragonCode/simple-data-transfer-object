@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DragonCode\SimpleDataTransferObject\Concerns;
 
-use DragonCode\Support\Facades\Helpers\Ables\Stringable;
+use DragonCode\Support\Facades\Helpers\Str;
 
 /** @mixin \DragonCode\SimpleDataTransferObject\DataTransferObject */
 trait Castable
@@ -22,7 +22,7 @@ trait Castable
 
     protected function getCastMethod(string $key, string $prefix = 'cast'): string
     {
-        return (string) Stringable::of($key)
+        return (string) Str::of($key)
             ->trim()
             ->start($prefix . '_')
             ->camel();

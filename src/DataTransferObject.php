@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DragonCode\SimpleDataTransferObject;
 
 use DragonCode\Contracts\DataTransferObject\DataTransferObject as Contract;

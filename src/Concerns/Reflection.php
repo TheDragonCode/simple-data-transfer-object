@@ -11,11 +11,6 @@ trait Reflection
 {
     use Resolvable;
 
-    /**
-     * @throws ReflectionException
-     *
-     * @return ReflectionClass
-     */
     protected function reflection(): ReflectionClass
     {
         return self::resolveCallback(static::class, static function (string $class) {

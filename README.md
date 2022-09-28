@@ -12,7 +12,7 @@
 To get the latest version of `Simple Data Transfer Object`, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require dragon-code/simple-dto
+composer require dragon-code/simple-dto
 ```
 
 Or manually update `require` block of `composer.json` and run `composer update`.
@@ -312,6 +312,36 @@ class Foo
         return Simple::fromRequest($this->request)
     }
 }
+```
+
+### Get And Set
+
+You can use the `get` and `set` methods in your app:
+
+```php
+namespace App\DTO;
+
+use DragonCode\SimpleDataTransferObject\DataTransferObject;
+
+class YourInstance extends DataTransferObject
+{
+    public $foo;
+}
+
+$instance = YourInstance::make([
+    'foo' => 'none',
+]);
+
+return $instance->foo;
+// none
+
+return $instance->get('foo');
+// none
+
+$instance->set('foo', 'Foo');
+
+return $instance->foo;
+// Foo
 ```
 
 ## Helpers

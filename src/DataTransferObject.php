@@ -9,6 +9,7 @@ use DragonCode\SimpleDataTransferObject\Concerns\Reflection;
 use DragonCode\Support\Concerns\Makeable;
 use DragonCode\Support\Facades\Helpers\Arr;
 use DragonCode\Support\Facades\Helpers\Str;
+use Error;
 use ReflectionException;
 
 /**
@@ -34,6 +35,26 @@ abstract class DataTransferObject implements Contract
     {
         $this->setMap($items);
         $this->setItems($items);
+    }
+
+    public function get(string $key)
+    {
+        if ($this->isAllow($key)) {
+            return $this->{$key};
+        }
+
+        throw new Error('Cannot access private property ' . static::class . '::$' . $key);
+    }
+
+    public function set(string $key, $value): DataTransferObject
+    {
+        if (! $this->isAllow($key)) {
+            throw new Error('Cannot access private property ' . static::class . '::$' . $key);
+        }
+
+        $this->{$key} = $value;
+
+        return $this;
     }
 
     /**
@@ -90,7 +111,7 @@ abstract class DataTransferObject implements Contract
     protected function setValue(string $key, $value): void
     {
         if ($this->isAllow($key)) {
-            $this->{$key} = $this->cast($value, $key);
+            $this->set($key, $this->cast($value, $key));
         }
     }
 

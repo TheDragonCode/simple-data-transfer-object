@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DragonCode\SimpleDataTransferObject\Concerns;
 
 use DragonCode\Support\Concerns\Resolvable;

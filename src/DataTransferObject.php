@@ -35,7 +35,7 @@ abstract class DataTransferObject implements Contract
      */
     public function __construct(array $items = [])
     {
-       $this->merge($items);
+        $this->merge($items);
     }
 
     public function get(string $key)
@@ -59,7 +59,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @throws \ReflectionException
+     * @param array $items
+     *
+     * @throws ReflectionException
      */
     public function merge(array $items): DataTransferObject
     {

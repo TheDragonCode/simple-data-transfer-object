@@ -101,7 +101,7 @@ abstract class DataTransferObject implements Contract
     protected function setItems(array $items): void
     {
         foreach ($items as $key => $value) {
-            $this->setValue($key, $value);
+            $this->setValue((string) $key, $value);
         }
     }
 

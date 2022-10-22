@@ -61,7 +61,9 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @throws \ReflectionException
+     * @param array $items
+     *
+     * @throws ReflectionException
      */
     public function merge(array $items): DataTransferObject
     {

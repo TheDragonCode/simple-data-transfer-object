@@ -8,6 +8,7 @@ use DragonCode\Contracts\DataTransferObject\DataTransferObject as Contract;
 use DragonCode\SimpleDataTransferObject\Concerns\Castable;
 use DragonCode\SimpleDataTransferObject\Concerns\From;
 use DragonCode\SimpleDataTransferObject\Concerns\Reflection;
+use DragonCode\SimpleDataTransferObject\Concerns\To;
 use DragonCode\Support\Concerns\Makeable;
 use DragonCode\Support\Facades\Helpers\Arr;
 use DragonCode\Support\Facades\Helpers\Str;
@@ -23,6 +24,7 @@ abstract class DataTransferObject implements Contract
     use From;
     use Makeable;
     use Reflection;
+    use To;
 
     protected $map = [];
 

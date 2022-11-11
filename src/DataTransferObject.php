@@ -63,7 +63,8 @@ abstract class DataTransferObject implements Contract
     /**
      * @param array $items
      *
-     * @throws ReflectionException
+     * @throws \ReflectionException
+     * @return \DragonCode\SimpleDataTransferObject\DataTransferObject
      */
     public function merge(array $items): DataTransferObject
     {
@@ -91,6 +92,10 @@ abstract class DataTransferObject implements Contract
     protected function setMap(array $items): void
     {
         foreach ($this->map as $from => $to) {
+            if ($this->sourceKeyDoesntExist($items, $from)) {
+                continue;
+            }
+
             $value = $this->getValueByKey($items, $from, $to);
 
             $this->setValue($to, $value);
@@ -164,5 +169,10 @@ abstract class DataTransferObject implements Contract
     protected function isAllowKey(string $key): bool
     {
         return ! in_array(Str::lower($key), $this->disallow, true);
+    }
+
+    protected function sourceKeyDoesntExist(array $items, string $key): bool
+    {
+        return ! Arr::exists($items, $key);
     }
 }

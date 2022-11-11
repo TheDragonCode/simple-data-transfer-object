@@ -15,9 +15,12 @@ class Cast extends DataTransferObject
 
     public $baz;
 
+    public $baq;
+
     protected $map = [
         'wa.sd'   => 'foo',
         'qwe.rty' => 'bar',
+        'int'     => 'baq',
     ];
 
     protected function castFoo(string $value)

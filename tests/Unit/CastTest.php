@@ -6,6 +6,7 @@ namespace Tests\Unit;
 
 use DragonCode\Support\Facades\Helpers\Str;
 use Tests\Fixtures\Cast;
+use Tests\Fixtures\Map;
 use Tests\TestCase;
 
 class CastTest extends TestCase
@@ -59,6 +60,24 @@ class CastTest extends TestCase
             'foo' => Str::upper($this->foo),
             'bar' => Str::lower($this->bar),
             'baz' => $this->baz,
+        ], $object->toArray());
+    }
+
+    public function testSurplusValues()
+    {
+        $object = new Map([
+            'wa' => [
+                'sd' => $this->foo,
+                'df' => 'some',
+            ],
+        ]);
+
+        $this->assertIsArray($object->toArray());
+
+        $this->assertSame([
+            'foo' => $this->foo,
+            'bar' => null,
+            'baz' => null,
         ], $object->toArray());
     }
 }

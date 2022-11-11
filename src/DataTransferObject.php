@@ -26,9 +26,13 @@ abstract class DataTransferObject implements Contract
     use Reflection;
     use To;
 
+    protected const DISALLOW = ['map', 'only', 'except'];
+
     protected $map = [];
 
-    protected $disallow = ['map', 'disallow'];
+    protected $only = [];
+
+    protected $except = [];
 
     /**
      * @param array $items
@@ -68,6 +72,8 @@ abstract class DataTransferObject implements Contract
      */
     public function merge(array $items): DataTransferObject
     {
+        $items = $this->filter($items);
+
         $this->setMap($items);
         $this->setItems($items);
 
@@ -82,6 +88,31 @@ abstract class DataTransferObject implements Contract
     public function toArray(): array
     {
         return $this->getProperties($this);
+    }
+
+    protected function filter(array $items): array
+    {
+        return $this->filterOnly(
+            $this->filterExcept($items)
+        );
+    }
+
+    protected function filterOnly(array $items): array
+    {
+        if ($keys = $this->only) {
+            return Arr::only($items, $keys);
+        }
+
+        return $items;
+    }
+
+    protected function filterExcept(array $items): array
+    {
+        if ($keys = $this->except) {
+            return Arr::except($items, $keys);
+        }
+
+        return $items;
     }
 
     /**
@@ -168,7 +199,7 @@ abstract class DataTransferObject implements Contract
 
     protected function isAllowKey(string $key): bool
     {
-        return ! in_array(Str::lower($key), $this->disallow, true);
+        return ! in_array(Str::lower($key), self::DISALLOW, true);
     }
 
     protected function sourceKeyDoesntExist(array $items, string $key): bool

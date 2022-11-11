@@ -20,12 +20,12 @@ class Cast extends DataTransferObject
         'qwe.rty' => 'bar',
     ];
 
-    protected function castFoo($value)
+    protected function castFoo(string $value)
     {
         return Str::upper($value);
     }
 
-    protected function castBar($value)
+    protected function castBar(string $value)
     {
         return Str::lower($value);
     }

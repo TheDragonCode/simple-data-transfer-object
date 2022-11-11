@@ -13,4 +13,6 @@ abstract class TestCase extends BaseTestCase
     protected $bar = 'Bar';
 
     protected $baz = 'Baz';
+
+    protected $baq = 'Baq';
 }

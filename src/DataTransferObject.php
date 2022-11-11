@@ -63,7 +63,8 @@ abstract class DataTransferObject implements Contract
     /**
      * @param array $items
      *
-     * @throws \ReflectionException
+     * @throws ReflectionException
+     *
      * @return \DragonCode\SimpleDataTransferObject\DataTransferObject
      */
     public function merge(array $items): DataTransferObject

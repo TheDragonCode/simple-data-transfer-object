@@ -173,6 +173,6 @@ abstract class DataTransferObject implements Contract
 
     protected function sourceKeyDoesntExist(array $items, string $key): bool
     {
-        return Arr::doesntExist($items, $key);
+        return ! Arr::exists($items, $key);
     }
 }

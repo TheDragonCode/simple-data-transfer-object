@@ -79,4 +79,30 @@ class MapTest extends TestCase
             'baz' => null,
         ], $object->toArray());
     }
+
+    public function testSurplusValues()
+    {
+        $object = new Map([
+            'wa' => [
+                'sd' => $this->foo,
+                'df' => 'some',
+            ],
+
+            'qwe' => [
+                'rty' => $this->bar,
+                'asd' => 'some',
+            ],
+
+            'John' => 'Doe',
+            'Mary' => 'Smith',
+        ]);
+
+        $this->assertIsArray($object->toArray());
+
+        $this->assertSame([
+            'foo' => $this->foo,
+            'bar' => $this->bar,
+            'baz' => null,
+        ], $object->toArray());
+    }
 }

@@ -15,6 +15,7 @@ use ReflectionException;
 class Objects implements Arrayable
 {
     use Makeable;
+
     use Reflection;
 
     protected $object;

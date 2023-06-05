@@ -21,9 +21,13 @@ use ReflectionException;
 abstract class DataTransferObject implements Contract
 {
     use Castable;
+
     use From;
+
     use Makeable;
+
     use Reflection;
+
     use To;
 
     protected const DISALLOW = ['map', 'only', 'except'];

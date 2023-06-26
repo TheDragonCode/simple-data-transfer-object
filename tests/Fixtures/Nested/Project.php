@@ -12,7 +12,7 @@ class Project extends DataTransferObject
 
     public $domain;
 
-    /** @var \Tests\Fixtures\Nested\Developer[] */
+    /** @var array<\Tests\Fixtures\Nested\Developer> */
     public $developers;
 
     protected function castDevelopers(array $developers): array

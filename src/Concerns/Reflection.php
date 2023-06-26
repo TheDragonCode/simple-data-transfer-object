@@ -21,11 +21,9 @@ trait Reflection
     }
 
     /**
-     * @param $object
-     *
      * @throws ReflectionException
      *
-     * @return ReflectionProperty[]
+     * @return array<ReflectionProperty>
      */
     protected function reflectProperties($object): array
     {
@@ -35,11 +33,7 @@ trait Reflection
     }
 
     /**
-     * @param $object
-     *
      * @throws ReflectionException
-     *
-     * @return array
      */
     protected function getProperties($object): array
     {

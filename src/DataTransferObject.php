@@ -21,13 +21,9 @@ use ReflectionException;
 abstract class DataTransferObject implements Contract
 {
     use Castable;
-
     use From;
-
     use Makeable;
-
     use Reflection;
-
     use To;
 
     protected const DISALLOW = ['map', 'only', 'except'];
@@ -39,8 +35,6 @@ abstract class DataTransferObject implements Contract
     protected $except = [];
 
     /**
-     * @param array $items
-     *
      * @throws ReflectionException
      */
     public function __construct(array $items = [])
@@ -69,8 +63,6 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param array $items
-     *
      * @throws ReflectionException
      *
      * @return \DragonCode\SimpleDataTransferObject\DataTransferObject
@@ -87,8 +79,6 @@ abstract class DataTransferObject implements Contract
 
     /**
      * @throws ReflectionException
-     *
-     * @return array
      */
     public function toArray(): array
     {
@@ -121,8 +111,6 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param array $items
-     *
      * @throws ReflectionException
      */
     protected function setMap(array $items): void
@@ -139,8 +127,6 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param array $items
-     *
      * @throws ReflectionException
      */
     protected function setItems(array $items): void
@@ -160,9 +146,6 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param string $key
-     * @param mixed $value
-     *
      * @throws ReflectionException
      */
     protected function setValue(string $key, $value): void
@@ -173,11 +156,7 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param string $key
-     *
      * @throws ReflectionException
-     *
-     * @return bool
      */
     protected function isAllow(string $key): bool
     {
@@ -185,11 +164,7 @@ abstract class DataTransferObject implements Contract
     }
 
     /**
-     * @param string $key
-     *
      * @throws ReflectionException
-     *
-     * @return bool
      */
     protected function isAllowProperty(string $key): bool
     {

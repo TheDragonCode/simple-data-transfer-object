@@ -10,7 +10,7 @@ class Company extends DataTransferObject
 {
     public $title;
 
-    /** @var \Tests\Fixtures\Nested\Project[] */
+    /** @var array<\Tests\Fixtures\Nested\Project> */
     public $projects;
 
     protected function castProjects(array $projects): array

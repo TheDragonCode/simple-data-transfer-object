@@ -15,11 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 trait From
 {
     /**
-     * @param array $array
-     *
      * @throws ReflectionException
-     *
-     * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
     public static function fromArray(array $array): Contract
     {
@@ -27,11 +23,7 @@ trait From
     }
 
     /**
-     * @param $object
-     *
      * @throws ReflectionException
-     *
-     * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
     public static function fromObject($object): Contract
     {
@@ -41,11 +33,7 @@ trait From
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws ReflectionException
-     *
-     * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
     public static function fromRequest(Request $request): Contract
     {
@@ -55,11 +43,7 @@ trait From
     }
 
     /**
-     * @param string $json
-     *
      * @throws ReflectionException
-     *
-     * @return \DragonCode\Contracts\DataTransferObject\DataTransferObject
      */
     public static function fromJson(string $json): Contract
     {

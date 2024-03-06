@@ -76,7 +76,7 @@ class FromTest extends TestCase
 
     public function testRequest()
     {
-        if (!method_exists(Request::class, 'toArray')) {
+        if (! method_exists(Request::class, 'toArray')) {
             $this->assertTrue(true);
 
             return;

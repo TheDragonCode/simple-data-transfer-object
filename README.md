@@ -58,7 +58,7 @@ class YourInstance extends DataTransferObject
 
 $instance = YourInstance::make([
     'foo' => 'Foo',
-    'bar' => 'Bar'
+    'bar' => 'Bar',
     'baz' => 'Baz'
 ]);
 

@@ -7,6 +7,9 @@
 [![Total Downloads][badge_downloads]][link_packagist]
 [![License][badge_license]][link_license]
 
+> [!TIP]
+> Use the [`spatie/laravel-data`](https://github.com/spatie/laravel-data) instead.
+
 ## Installation
 
 To get the latest version of `Simple Data Transfer Object`, simply require the project using [Composer](https://getcomposer.org):
